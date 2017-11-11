@@ -3,7 +3,7 @@ const axios = require('axios');
 const { buildHistoMinuteUrl } = require('../utils');
 
 const getCurrenciesData = (req, res) => {
-  const RANGE_OF_EXTRACTION = 60 * 24;
+  const RANGE_OF_EXTRACTION = 60;
   const ORIGIN_CURRENCY = 'USD';
   const CURRENCIES = ['ETH', 'BTC', 'DASH'];
   const CURRENT_TIMESTAMP = new Date().getTime();
