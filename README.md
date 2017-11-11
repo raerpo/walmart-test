@@ -1,5 +1,9 @@
 ## Walmart Test
 
+### Requirements
+
+Node 7 or above.
+
 ### Installing dependencies
 
 ```
