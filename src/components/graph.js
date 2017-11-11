@@ -1,6 +1,6 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import { format } from 'date-fns/format';
+import format from 'date-fns/format';
 
 const Graph = (props) => {
 
@@ -26,16 +26,21 @@ const Graph = (props) => {
     });
   }
 
+  // The API return the timestamp as a EPOC time in seconds but JS
+  // use it in ms. We need to fix that adding the extra digits to 
+  // the timestamp
   const formatTimestamps = (timestamp) => {
-    // return format(new Date(timestamp));
-    return timestamp;
+    return format(
+      new Date(timestamp * 1000),
+      'YYYY-MM-DD HH:mm'
+    );
   }
 
   const renderLines = (data) => {
     const currencies = data.map(item => item.currency);
     return currencies.map(currency => <Line type="monotone" dataKey={currency} stroke="#82ca9d" />);
   }
-  
+
   return (
     <div>
       <LineChart width={600} height={300} data={prepareDataToGraph(props.data)}

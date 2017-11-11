@@ -1,11 +1,12 @@
 const { URL } = require('url'); 
 const axios = require('axios');
 const { buildHistoMinuteUrl } = require('../utils');
+const { toCurrencies, fromCurrency } = require('../config');
 
 const getCurrenciesData = (req, res) => {
   const RANGE_OF_EXTRACTION = 60;
-  const ORIGIN_CURRENCY = 'USD';
-  const CURRENCIES = ['ETH', 'BTC', 'DASH'];
+  const ORIGIN_CURRENCY = fromCurrency;
+  const CURRENCIES = toCurrencies;
   const CURRENT_TIMESTAMP = new Date().getTime();
 
   const APIUrls = CURRENCIES.map(currency => {

@@ -6,6 +6,7 @@ const { serverPort } = require('./config');
 // const CriptoCurrencySnapshot = require('./models/CriptoCurrencySnapshot');
 const { getCurrenciesData } = require('./controllers');
 const server = express();
+// Enable cors only for development
 server.use(cors());
 
 server.use(express.static(path.resolve(__dirname, 'build')));
