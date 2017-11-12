@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Graph from './components/Graph.js';
+import Graph from './components/Graphic.js';
 import Wrapper from './containers/Wrapper.js';
 
 export class App extends Component {
